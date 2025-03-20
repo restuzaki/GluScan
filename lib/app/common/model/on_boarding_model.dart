@@ -1,7 +1,9 @@
+import 'package:flutter/widgets.dart';
+
 class OnBoardingModel {
   String title;
   String subTitle;
-  String image;
+  Widget image;
   OnBoardingModel(
       {required this.image, required this.subTitle, required this.title});
 }

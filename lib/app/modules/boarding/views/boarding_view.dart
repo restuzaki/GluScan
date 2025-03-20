@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project_sehat/app/common/data/on_boarding_data.dart';
+import 'package:project_sehat/app/common/widget/custom_button.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:project_sehat/app/modules/boarding/controllers/boarding_controller.dart';
 
@@ -24,10 +25,9 @@ class BoardingView extends GetView<BoardingController> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset(
-                        item.image,
+                      SizedBox(
                         height: 250,
-                        fit: BoxFit.cover,
+                        child: item.image,
                       ),
                       const SizedBox(height: 20),
                       Text(
@@ -50,7 +50,7 @@ class BoardingView extends GetView<BoardingController> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(bottom: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
             child: Column(
               children: [
                 SmoothPageIndicator(
@@ -63,22 +63,25 @@ class BoardingView extends GetView<BoardingController> {
                   ),
                 ),
                 const SizedBox(height: 20),
-                Obx(() => ElevatedButton(
-                      onPressed: () {
-                        if (controller.currentPage.value ==
-                            onboarding.length - 1) {
-                          controller.completeOnboarding();
-                        } else {
-                          controller.pageController.nextPage(
-                            duration: const Duration(milliseconds: 300),
-                            curve: Curves.easeInOut,
-                          );
-                        }
-                      },
-                      child: Text(
-                          controller.currentPage.value == onboarding.length - 1
-                              ? "Mulai"
-                              : "Lanjut"),
+                Obx(() => SizedBox(
+                      width: 300,
+                      child: CustomButton(
+                        text: controller.currentPage.value ==
+                                onboarding.length - 1
+                            ? "Mulai"
+                            : "Lanjut",
+                        onTap: () {
+                          if (controller.currentPage.value ==
+                              onboarding.length - 1) {
+                            controller.completeOnboarding();
+                          } else {
+                            controller.pageController.nextPage(
+                              duration: const Duration(milliseconds: 300),
+                              curve: Curves.easeInOut,
+                            );
+                          }
+                        },
+                      ),
                     )),
               ],
             ),

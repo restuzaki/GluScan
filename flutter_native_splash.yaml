@@ -1,0 +1,27 @@
+flutter_native_splash:
+  # Warna background splash screen
+  color: '#2196F3'
+
+  # Gambar splash screen (harus PNG dengan rasio portrait)
+  image: assets/icon/Glue.png
+
+  # # Menambahkan teks di bagian bawah sebagai branding (gunakan gambar PNG transparan berisi teks)
+  branding: assets/icon/gluscan.png
+  branding_mode: native
+  branding_bottom_padding: 24
+   
+
+  # Hanya mengizinkan orientasi portrait
+  android_screen_orientation: portrait
+
+  # Konfigurasi khusus untuk Android 12+
+  android_12:
+    image: assets/icon/Glue.png
+    color: '#2196F3'
+    branding: assets/icon/gluscan.png
+    # Gunakan background_image jika ingin menghindari pemotongan lingkaran di Android 12+
+    # background_image: assets/splash_background.png
+
+  # Mengaktifkan splash screen untuk Android & iOS
+  android: true
+  ios: true
