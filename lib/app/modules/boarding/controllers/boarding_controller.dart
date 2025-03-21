@@ -13,6 +13,6 @@ class BoardingController extends GetxController {
 
   void completeOnboarding() {
     box.write('seenOnboarding', true);
-    Get.offNamed('/home');
+    Get.offNamed('/login');
   }
 }
