@@ -4,6 +4,8 @@ import 'package:project_sehat/app/modules/boarding/views/boarding_view.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:project_sehat/app/modules/login/bindings/login_binding.dart';
 import 'package:project_sehat/app/modules/login/views/login_view.dart';
+import 'package:project_sehat/app/modules/qrscan/bindings/qr_scan_binding.dart';
+import 'package:project_sehat/app/modules/qrscan/views/qr_scan_view.dart';
 import 'package:project_sehat/app/modules/register/bindings/register_binding.dart';
 import 'package:project_sehat/app/modules/register/views/register_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -40,6 +42,11 @@ class AppPages {
       name: Routes.REGISTER,
       page: () => RegisterView(),
       binding: RegisterBinding(),
+    ),
+    GetPage(
+      name: Routes.SCAN,
+      page: () => ScanView(),
+      binding: ScanBinding(),
     ),
   ];
 }
